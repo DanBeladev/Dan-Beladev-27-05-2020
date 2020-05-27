@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -9,7 +9,7 @@ import results from '../mocks/autoCompleteMock';
 
 const Search = () => {
     const dispatch = useDispatch();
-
+    const searchResults = useSelector(state => state.app.searchResults);
     // set functions
     const setText = (text) => dispatch(setTextAction(text))
     
@@ -21,7 +21,7 @@ const Search = () => {
     return (
         <Autocomplete
         id="combo-box-demo"
-        options={results}
+        options={searchResults}
         onChange={onTyping} //(e,v)=> setFilter(v)}
         onInputChange={onTyping}
         getOptionLabel={(option) => option.LocalizedName}

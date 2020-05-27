@@ -1,9 +1,9 @@
 import {
-    SET_TEXT,
+    UPDATE_SEARCH_RESULTS,
 } from "../actions/types";
 
 const initialState = {
-    text: '',
+    //text: '',
     searchResults: [],
     locationKey: '215854',
     defaultLocation: 'Tel Aviv',
@@ -15,10 +15,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case SET_TEXT:
+        case UPDATE_SEARCH_RESULTS:
             return {
               ...state,
-              text: action.payload
+              searchResults: action.payload
             };
         default:
             return state
