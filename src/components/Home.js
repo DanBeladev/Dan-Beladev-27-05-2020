@@ -1,16 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import FreeSolo from './Search';
+import Search from './Search';
 import LocationCard from './LocationCard/LocationCard';
 import DayCard from './DayCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: '#000',
-    padding: 20,
+    //backgroundColor: '#000',
+    // padding: 20,
   },
   paper: {
     padding: theme.spacing(2),
@@ -26,7 +25,7 @@ const Home = () => {
     <div className={classes.root}>
       <Grid container spacing={10}>
         <Grid item xs={12}>
-          <FreeSolo />
+          <Search />
           {/* <Paper className={classes.paper}>xs=12</Paper> */}
         </Grid>
         <Grid item xs={6}>

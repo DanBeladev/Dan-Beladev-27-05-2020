@@ -4,10 +4,12 @@ import {
 
 const initialState = {
     text: '',
+    searchResults: [],
     locationKey: '215854',
     defaultLocation: 'Tel Aviv',
     location: 'Tel Aviv',
-    cities: []
+    test:'Rami',
+    //cities: []
 };
 
 
