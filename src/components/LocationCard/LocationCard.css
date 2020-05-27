@@ -1,0 +1,16 @@
+.add-fav{
+    float: right;
+    background: url('../../assets/heart.png') no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+.temp_unit{
+    float: right;
+    background: url('../../assets/celsius.png') no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
