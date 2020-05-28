@@ -1,20 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Container, Grid, Typography } from '@material-ui/core';
 import Search from './Search';
 import LocationCard from './LocationCard/LocationCard';
+import ForcastList from './ForecastList';
 import DayCard from './DayCard';
+import ForecastList from './ForecastList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-    //backgroundColor: '#000',
+    //flexGrow: 1,
+    backgroundColor: '#dde3ed',
     // padding: 20,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
 }));
 
@@ -22,41 +19,29 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={10}>
+    <Container minWidth='md' className={classes.root}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Search />
-          {/* <Paper className={classes.paper}>xs=12</Paper> */}
         </Grid>
+
         <Grid item xs={6}>
           <LocationCard />
-          {/* <Paper className={classes.paper}>xs=6</Paper> */}
         </Grid>
         <Grid item xs={6}>
-          {/* <Paper className={classes.paper}>xs=6</Paper> */}
+          {/* <LocationCard /> */}
         </Grid>
-        <Grid item xs={2}>
-          <DayCard />
-          {/* <Paper className={classes.paper}>xs=2</Paper> */}
+
+        <Grid item xs={12}>
+          <ForecastList allDays={[1,1,1,1,1]}/>
         </Grid>
-        <Grid item xs={2}>
-          <DayCard />
-          {/* <Paper className={classes.paper}>xs=2</Paper> */}
-        </Grid>
-        <Grid item xs={2}>
-          <DayCard />
-          {/* <Paper className={classes.paper}>xs=2</Paper> */}
-        </Grid>
-        <Grid item xs={2}>
-          <DayCard />
-          {/* <Paper className={classes.paper}>xs=2</Paper> */}
-        </Grid>
-        <Grid item xs={2}>
-          <DayCard />
-          {/* <Paper className={classes.paper}>xs=2</Paper> */}
-        </Grid>
+        {/* {[1, 2, 3, 4, 5].map((dayCard) => (
+          <Grid item xs={2}>
+            <DayCard />
+          </Grid>
+        ))} */}
       </Grid>
-    </div>
+    </Container>
   );
 };
 export default Home;

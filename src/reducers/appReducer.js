@@ -1,5 +1,5 @@
 import {
-    UPDATE_SEARCH_RESULTS,
+    UPDATE_SEARCH_RESULTS, SET_LOCATION
 } from "../actions/types";
 
 const initialState = {
@@ -7,7 +7,7 @@ const initialState = {
     searchResults: [],
     locationKey: '215854',
     defaultLocation: 'Tel Aviv',
-    location: 'Tel Aviv',
+    locationName: 'Tel Aviv',
     test:'Rami',
     //cities: []
 };
@@ -20,6 +20,13 @@ export default (state = initialState, action) => {
               ...state,
               searchResults: action.payload
             };
+
+            case SET_LOCATION:
+                return {
+                  ...state,
+                  locationKey: action.payload.key,
+                  locationName: action.payload.name
+                };
         default:
             return state
     }

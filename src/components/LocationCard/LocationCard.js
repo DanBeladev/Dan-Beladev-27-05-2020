@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -26,12 +27,27 @@ const useStyles = makeStyles({
 
 const LocationCard =()=> {
   const classes = useStyles();
+  const locationKey = useSelector(state => state.app.locationKey);
+  const locationName = useSelector(state => state.app.locationName);
+  const [locationData, setlocationData] = useState({
+
+  });
+
+  // Functions
+  const fetchLocationData = async () => {
+
+  }
+
+  // Use effect
+  useEffect(() => {
+
+  }, [locationKey]);
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          Tel Aviv
+          {locationName}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           Israel

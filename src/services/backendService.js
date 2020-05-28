@@ -1,8 +1,14 @@
 import axios from 'axios';
-import {KEY,LANGUAGE,AUTO_COMPLETE_API} from '../config';
+import {KEY,LANGUAGE,AUTO_COMPLETE_API,CURRENT_CONDITIONS_API} from '../config';
 
 export const getSearchList = async (searchString) => {
   const url = `${AUTO_COMPLETE_API}?apikey=${KEY}&q=${searchString}&${LANGUAGE}`;
+  const list = await sendGetRequest(url, []);
+  return list;
+};
+
+export const getCurrentWeather = async (locationKey) => {
+  const url = `${CURRENT_CONDITIONS_API}${locationKey}?apikey=${KEY}&${LANGUAGE}`;
   const list = await sendGetRequest(url, []);
   return list;
 };
