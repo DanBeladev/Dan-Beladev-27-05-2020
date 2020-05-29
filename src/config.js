@@ -8,4 +8,5 @@ export const FIVE_DAY_FORECAST_API = 'http://dataservice.accuweather.com/forecas
 
 
 export const ICON_URL ='https://developer.accuweather.com/sites/default/files/0'
+export const ICON_SHORTER_URL ='https://developer.accuweather.com/sites/default/files/'
 export const ICON_EXTENSION = '-s.png'

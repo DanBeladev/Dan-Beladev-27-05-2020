@@ -1,14 +1,33 @@
 .add-fav{
     float: right;
-    background: url('../../assets/heart.png') no-repeat;
+    background: url('../../assets/follow.png') no-repeat;
     cursor: pointer;
     border: none;
     width: 32px;
     height: 32px;
 }
-.temp_unit{
+
+.remove-fav{
+    float: right;
+    background: url('../../assets/unfollow.png') no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+.metric_unit{
     float: right;
     background: url('../../assets/celsius.png') no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+.imperial_unit{
+    float: right;
+    background: url('../../assets/farenheit.png') no-repeat;
     cursor: pointer;
     border: none;
     width: 32px;

@@ -1,9 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import { cToF } from '../utils';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   root: {
@@ -22,28 +23,55 @@ const useStyles = makeStyles({
   },
 });
 
-const DayCard =()=> {
+const DayCard = (props) => {
   const classes = useStyles();
-  const test = useSelector(state => state.app.test);
+  const { name, Temperature, Day } = props.day;
+  const showCelsius = useSelector((state) => state.app.showCelsius);
+
+  // Functions
+  const getTemp = () => {
+    const minValue = showCelsius ? Temperature.Minimum.Value : cToF(Temperature.Minimum.Value);
+    const maxValue = showCelsius ? Temperature.Maximum.Value : cToF(Temperature.Maximum.Value);
+    const unit = showCelsius ? Temperature.Maximum.Unit : 'F';
+
+    return (
+      <div>
+        <p>
+          {minValue} <i> °{unit}</i>
+        </p>
+        <p>
+          {maxValue} <i> °{unit}</i>
+        </p>
+      </div>
+    );
+  };
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography variant="h5" component="h2">
-        {/* Tuesday */}
-        {test}
+        <Typography variant='h5' component='h2'>
+          {name}
         </Typography>
-        <img src={require('../assets/celsius.png')}
-                             alt=""
-                             className="round-img"
-                             style={{width: '60px'}}/>
-                                                     <div>
-                            <p>25 <i> °C</i></p>
-                            <p>32 <i> °C</i></p>
-                        </div>
+        <img
+          src={Day.Icon}
+          alt=''
+          className='round-img'
+          style={{ width: '60px' }}
+        />
+        {
+          getTemp()
+        }
+        {/* <div>
+          <p>
+            {Temperature.Minimum.Value} <i> °{Temperature.Minimum.Unit}</i>
+          </p>
+          <p>
+            {Temperature.Maximum.Value} <i> °{Temperature.Maximum.Unit}</i>
+          </p>
+        </div> */}
       </CardContent>
     </Card>
   );
-}
+};
 
 export default DayCard;

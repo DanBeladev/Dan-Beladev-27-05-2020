@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import debounce from 'lodash.debounce';
-import { searchAction, setLoactionAction } from '../actions/appActions';
+import { searchAction, setLoactionAction, setWeatherDetailsAction } from '../actions/appActions';
 import { DEBOUNCE_TIMEOUT_MS } from '../constants';
 
 const Search = () => {
@@ -14,6 +14,7 @@ const Search = () => {
   // Set functions
   const search = (text) => dispatch(searchAction(text));
   const setLocation = (location) => dispatch(setLoactionAction(location));
+  const setWeatherDetails = (locationKey) => dispatch(setWeatherDetailsAction(locationKey));
 
   // Events
   const onTyping = (event, value) => {
@@ -33,10 +34,14 @@ const Search = () => {
     if (value) {
       const location = {
         key: value.Key,
-        name: value.LocalizedName,
+        name: {
+          city: value.LocalizedName,
+          country: value.Country.LocalizedName,
+        },
       };
       console.log(location);
       setLocation(location);
+      setWeatherDetails(location.key);
     }
   };
 
