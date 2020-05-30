@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -20,7 +20,9 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 15,
     maxwidth: '70%',
-    background: 'cornsilk',
+    background: 'linen',
+    marginBottom: 25,
+    marginTop: 25,
   },
   pos: {
     marginBottom: 12,
@@ -30,7 +32,7 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
   },
   icon: {
-    width: 180,
+    width: 160,
     height: 70,
   },
 });
@@ -38,7 +40,7 @@ const useStyles = makeStyles({
 const LocationCard = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  //TODO: Check if to useSelector once and destructering
+
   const locationKey = useSelector((state) => state.app.locationKey);
   const locationName = useSelector((state) => state.app.locationName);
   const currentWeather = useSelector((state) => state.app.currentWeather);
@@ -51,13 +53,12 @@ const LocationCard = () => {
   const isFavorite = favoriteKeys.includes(locationKey);
   const favoriteBtnClass = isFavorite ? 'remove-fav' : 'add-fav';
 
-  // Set functions
   const setCelsius = (newValue) => dispatch(setCelsiusAction(newValue));
   const setWeather = () => dispatch(setWeatherDetailsAction(locationKey));
   const removeFromFavorites = () =>
     dispatch(removeFromFavoritesAction(locationKey));
   const addToFavorites = () => dispatch(addToFavoritesAction(locationKey));
-  // Events
+
   const onTempUnitClick = (event) => {
     setCelsius(!showCelsius);
   };
@@ -66,30 +67,28 @@ const LocationCard = () => {
     removeFromFavorites();
     M.toast({ html: `${locationName.city} ${REMOVED_FROM_FAVORITES}` });
   };
+
   const addCity = () => {
     addToFavorites();
     M.toast({ html: `${locationName.city} ${ADDED_TO_FAVORITES}` });
   };
+
   const onFavoriteClick = (event) => {
     isFavorite ? removeCity() : addCity();
   };
 
-  
-  // Use effect
-  useEffect(() => {
-    // Functions
-    const setWeather = () => dispatch(setWeatherDetailsAction(locationKey));
-    const fetchLocationData = () => {
-      setWeather(locationKey);
-    };
+  const fetchLocationData = () => {
+    setWeather(locationKey);
+  };
 
+  useEffect(() => {
     fetchLocationData();
   }, [locationKey]);
 
   return (
     <Card className={classes.root} elevation={4}>
       <CardContent>
-        <Typography variant='h5' component='h2'>
+        <Typography variant={'h5'} component={'span'}>
           {locationName.city}
         </Typography>
         <Typography className={classes.pos} color='textSecondary'>
@@ -97,11 +96,11 @@ const LocationCard = () => {
         </Typography>
         <Typography
           className={classes.weatherContainer}
-          alignRight
-          variant='body2'
-          component='p'
+          alignright='true'
+          variant={'body2'}
+          component={'span'}
         >
-          <Typography variant='h4' component='p'>
+          <Typography variant={'h4'} component={'span'}>
             {currentWeather.Temperature && (
               <i>
                 {showCelsius
@@ -122,11 +121,13 @@ const LocationCard = () => {
           size='small'
           className={favoriteBtnClass}
           onClick={onFavoriteClick}
+          children={<Fragment></Fragment>}
         />
         <Button
           size='small'
           className={TemperatureBtnClass}
           onClick={onTempUnitClick}
+          children={<Fragment></Fragment>}
         />
       </CardActions>
     </Card>

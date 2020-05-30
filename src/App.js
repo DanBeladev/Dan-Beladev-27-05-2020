@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
     height: '100%',
     width: '100%',
-    // backgroundColor: 'blue'
   },
 }));
 
@@ -30,7 +29,7 @@ function App() {
     <Fragment>
       <AppNavBar />
 
-      <Box  className={classes.appContent}>
+      <Box className={classes.appContent}>
         <Switch>
           <Route exact path={ROOT_ROUTE}>
             <Redirect to={HOME_ROUTE} />

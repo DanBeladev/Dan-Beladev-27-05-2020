@@ -5,10 +5,10 @@ import {
   SET_WEEKLY_DATA,
   SET_SHOW_CELSIUS,
   ADD_FAVORITES,
-  REMOVE_FAVORITES 
+  REMOVE_FAVORITES,
 } from '../actions/types';
 
-import {FAV_KEY} from '../constants' ;
+import { FAV_KEY } from '../constants';
 
 const initialState = {
   searchResults: [],
@@ -18,7 +18,7 @@ const initialState = {
   currentWeather: {},
   weeklyData: {},
   showCelsius: true,
-  favoriteKeys: JSON.parse(localStorage.getItem(FAV_KEY)) || []
+  favoriteKeys: JSON.parse(localStorage.getItem(FAV_KEY)) || [],
 };
 
 export default (state = initialState, action) => {
@@ -48,26 +48,28 @@ export default (state = initialState, action) => {
         weeklyData: action.payload,
       };
 
-      case SET_SHOW_CELSIUS:
-        return {
-          ...state,
-          showCelsius: action.payload,
-        };
-        case REMOVE_FAVORITES:
-          const newFavorites  = state.favoriteKeys.filter(favId => favId !== action.payload);
-          localStorage.setItem(FAV_KEY, JSON.stringify(newFavorites));
-          return {
-            ...state,
-            favoriteKeys: newFavorites,
-          };
+    case SET_SHOW_CELSIUS:
+      return {
+        ...state,
+        showCelsius: action.payload,
+      };
+    case REMOVE_FAVORITES:
+      const newFavorites = state.favoriteKeys.filter(
+        (favId) => favId !== action.payload
+      );
+      localStorage.setItem(FAV_KEY, JSON.stringify(newFavorites));
+      return {
+        ...state,
+        favoriteKeys: newFavorites,
+      };
 
-        case ADD_FAVORITES:
-          const newFavs  = [...state.favoriteKeys, action.payload];
-          localStorage.setItem(FAV_KEY, JSON.stringify(newFavs));
-          return {
-            ...state,
-            favoriteKeys: newFavs,
-          };
+    case ADD_FAVORITES:
+      const newFavs = [...state.favoriteKeys, action.payload];
+      localStorage.setItem(FAV_KEY, JSON.stringify(newFavs));
+      return {
+        ...state,
+        favoriteKeys: newFavs,
+      };
     default:
       return state;
   }

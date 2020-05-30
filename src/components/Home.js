@@ -6,9 +6,7 @@ import LocationCard from './LocationCard/LocationCard';
 import ForecastList from './ForecastList';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // backgroundColor: '#dde3ed',
-  },
+  root: {},
 }));
 
 const Home = () => {
@@ -24,11 +22,10 @@ const Home = () => {
         <Grid item xs={6}>
           <LocationCard />
         </Grid>
-        <Grid item xs={6}>
-        </Grid>
+        <Grid item xs={6}></Grid>
 
         <Grid item xs={12}>
-          <ForecastList allDays={[1,1,1,1,1]}/>
+          <ForecastList allDays={[1, 1, 1, 1, 1]} />
         </Grid>
       </Grid>
     </Container>

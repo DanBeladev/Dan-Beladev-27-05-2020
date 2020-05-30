@@ -9,10 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    maxHeight: 270,
-    background: 'cornsilk',
-    borderColor: 'darkgrey',
-    borderWidth: 1,
+    maxHeight: 242,
+    background: 'lightslategray',
   },
   pos: {
     marginBottom: 12,
@@ -20,12 +18,12 @@ const useStyles = makeStyles({
   temp: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'monospace'
+    fontFamily: 'monospace',
   },
   icon: {
-    width: 170,
-    height: 80
-  }
+    width: 160,
+    height: 80,
+  },
 });
 
 const DayCard = (props) => {
@@ -33,13 +31,16 @@ const DayCard = (props) => {
   const { name, Temperature, Day } = props.day;
   const showCelsius = useSelector((state) => state.app.showCelsius);
 
-  // Functions
   const getTemp = () => {
-    const minValue = showCelsius ? Temperature.Minimum.Value : cToF(Temperature.Minimum.Value);
-    const maxValue = showCelsius ? Temperature.Maximum.Value : cToF(Temperature.Maximum.Value);
+    const minValue = showCelsius
+      ? Temperature.Minimum.Value
+      : cToF(Temperature.Minimum.Value);
+    const maxValue = showCelsius
+      ? Temperature.Maximum.Value
+      : cToF(Temperature.Maximum.Value);
     const unit = showCelsius ? Temperature.Maximum.Unit : 'F';
 
-    return ( 
+    return (
       <div className={classes.temp}>
         <p>
           {minValue} <i> °{unit}</i>
@@ -57,14 +58,8 @@ const DayCard = (props) => {
         <Typography variant='h5' component='h2'>
           {name}
         </Typography>
-        <img
-          src={Day.Icon}
-          alt=''
-          className={classes.icon}
-        />
-        {
-          getTemp()
-        }
+        <img src={Day.Icon} alt='' className={classes.icon} />
+        {getTemp()}
       </CardContent>
     </Card>
   );

@@ -15,13 +15,13 @@ import {
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    background: 'cornsilk',
+    background: 'lightslategray',
     '&:hover': {
       cursor: 'pointer',
     },
   },
   temp: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
     fontFamily: 'monospace',
   },
@@ -42,7 +42,6 @@ const useStyles = makeStyles({
 const FavoriteCard = (props) => {
   const dispatch = useDispatch();
 
-  // set functions
   const setLocation = (location) => dispatch(setLoactionAction(location));
   const setWeatherDetails = (locationKey) =>
     dispatch(setWeatherDetailsAction(locationKey));

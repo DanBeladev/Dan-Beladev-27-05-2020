@@ -9,12 +9,12 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(2),
     borderRadius: 15,
-    background:'floralwhite',
-    maxHeight: 350
+    background: 'linen',
+    maxHeight: 260,
   },
   dayItem: {
-    justify:'center'
-  }
+    justify: 'center',
+  },
 }));
 
 const ForecastList = ({ allDays }) => {
@@ -23,18 +23,16 @@ const ForecastList = ({ allDays }) => {
   const locationKey = useSelector((state) => state.app.locationKey);
   const weeklyData = useSelector((state) => state.app.weeklyData);
 
-  // Set functions
   const getWeeklyForecast = () =>
     dispatch(getWeeklyForecastAction(locationKey));
 
-  // useEffect
   useEffect(() => {
     getWeeklyForecast();
   }, [locationKey]);
 
   return (
     <Paper className={classes.container} elevation={3}>
-      <Grid item container justify="center" spacing={2}>
+      <Grid item container justify='center' spacing={2}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4'>
             {weeklyData.text}
@@ -42,7 +40,7 @@ const ForecastList = ({ allDays }) => {
         </Grid>
         {weeklyData.dailyForecasts &&
           weeklyData.dailyForecasts.map((day, index) => (
-            <Grid item  align='center' key={'day_' + index} xs={2}>
+            <Grid item align='center' key={'day_' + index} xs={2}>
               <DayCard key={'dayCard_' + index} day={day} />
             </Grid>
           ))}
