@@ -23,19 +23,19 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 15,
     maxwidth: '70%',
-    background: 'cornsilk'
+    background: 'cornsilk',
   },
   pos: {
     marginBottom: 12,
   },
   weatherContainer: {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   icon: {
     width: 150,
-    height: 100
-  }
+    height: 100,
+  },
 });
 
 const LocationCard = () => {
@@ -65,14 +65,14 @@ const LocationCard = () => {
     setCelsius(!showCelsius);
   };
 
-  const removeCity = () =>{
+  const removeCity = () => {
     removeFromFavorites();
-    M.toast({html: `${locationName.city} ${REMOVED_FROM_FAVORITES}`})
-  }
-  const addCity = () =>{
+    M.toast({ html: `${locationName.city} ${REMOVED_FROM_FAVORITES}` });
+  };
+  const addCity = () => {
     addToFavorites();
-    M.toast({html: `${locationName.city} ${ADDED_TO_FAVORITES}`})
-  }
+    M.toast({ html: `${locationName.city} ${ADDED_TO_FAVORITES}` });
+  };
   const onFavoriteClick = (event) => {
     isFavorite ? removeCity() : addCity();
   };
@@ -96,7 +96,12 @@ const LocationCard = () => {
         <Typography className={classes.pos} color='textSecondary'>
           {locationName.country}
         </Typography>
-        <Typography className={classes.weatherContainer} alignRight variant='body2' component='p'>
+        <Typography
+          className={classes.weatherContainer}
+          alignRight
+          variant='body2'
+          component='p'
+        >
           <Typography variant='h4' component='p'>
             {currentWeather.Temperature && (
               <i>
@@ -108,7 +113,9 @@ const LocationCard = () => {
               </i>
             )}
           </Typography>
-          {locationIcon && <img className={classes.icon} src={locationIcon} alt='' />}
+          {locationIcon && (
+            <img className={classes.icon} src={locationIcon} alt='' />
+          )}
         </Typography>
       </CardContent>
       <CardActions>
