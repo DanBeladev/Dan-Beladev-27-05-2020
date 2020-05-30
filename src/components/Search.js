@@ -39,7 +39,6 @@ const Search = () => {
           country: value.Country.LocalizedName,
         },
       };
-      console.log(location);
       setLocation(location);
       setWeatherDetails(location.key);
     }

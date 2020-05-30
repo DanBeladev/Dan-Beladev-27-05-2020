@@ -61,14 +61,6 @@ const DayCard = (props) => {
         {
           getTemp()
         }
-        {/* <div>
-          <p>
-            {Temperature.Minimum.Value} <i> °{Temperature.Minimum.Unit}</i>
-          </p>
-          <p>
-            {Temperature.Maximum.Value} <i> °{Temperature.Maximum.Unit}</i>
-          </p>
-        </div> */}
       </CardContent>
     </Card>
   );
