@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
     container: {
       padding: theme.spacing(2),
       borderRadius: 15,
+      background:'floralwhite'
+
     },
   }));
 
@@ -19,12 +21,12 @@ const Favorites = () => {
     const favoriteKeys = useSelector((state) => state.app.favoriteKeys);
     // const dispatch = useDispatch();
   return (
-    <Paper className={classes.container}>
-      <Grid item container spacing={1}>
+    <Paper justify='center' align='center' elevation={4} className={classes.container}>
+      <Grid container justify="center" spacing={3}>
         {favoriteKeys.map((favKey,index) => {
             console.log(favKey);
             return(
-            <Grid item key={index} xs={2}>
+            <Grid item align='center' key={index} xs={2}>
               <FavoriteCard locationKey={favKey} />
               {/* <LocationCard key={favKey} locationKey={favKey} /> */}
             </Grid>

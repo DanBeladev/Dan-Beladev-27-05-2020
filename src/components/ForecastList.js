@@ -9,7 +9,11 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(2),
     borderRadius: 15,
+    background:'floralwhite'
   },
+  dayItem: {
+    justify:'center'
+  }
 }));
 
 const ForecastList = ({ allDays }) => {
@@ -29,7 +33,7 @@ const ForecastList = ({ allDays }) => {
 
   return (
     <Paper className={classes.container}>
-      <Grid item container spacing={1}>
+      <Grid item container justify="center" spacing={2}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4'>
             {weeklyData.text}
@@ -37,7 +41,7 @@ const ForecastList = ({ allDays }) => {
         </Grid>
         {weeklyData.dailyForecasts &&
           weeklyData.dailyForecasts.map((day, index) => (
-            <Grid item key={'day_' + index} xs={2}>
+            <Grid item  align='center' key={'day_' + index} xs={2}>
               <DayCard key={'dayCard_' + index} day={day} />
             </Grid>
           ))}

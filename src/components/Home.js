@@ -15,7 +15,7 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <Container minWidth='md' className={classes.root}>
+    <Container minwidth='md' className={classes.root}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Search />

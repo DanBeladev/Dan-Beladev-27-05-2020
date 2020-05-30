@@ -53,7 +53,7 @@ const Search = () => {
       onInputChange={onTyping}
       getOptionLabel={(option) => option.LocalizedName}
       renderInput={(params) => (
-        <TextField {...params} label='Search here' variant='outlined' />
+        <TextField {...params} label='Search Locations' variant='outlined' />
       )}
     />
   );

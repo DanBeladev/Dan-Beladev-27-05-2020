@@ -11,6 +11,7 @@ import { HOME_ROUTE, FAVORITES_ROUTE } from '../constants';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    background: 'darkslategray'
   },
   menuButton: {
     marginRight: theme.spacing(2),

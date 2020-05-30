@@ -15,28 +15,33 @@ const useStyles = makeStyles((theme) => ({
   appContent: {
     marginTop: theme.spacing(4),
     //backgroundColor: '#a5b5cf',
+    backgroundColor: 'red',
   },
 }));
 
 function App() {
   const classes = useStyles();
-  useEffect(()=>{M.AutoInit()})
+  useEffect(() => {
+    M.AutoInit();
+  });
 
   return (
     <Fragment>
-
       <AppNavBar />
 
-      <Box height="100%" width="100%" className={classes.appContent}>
+      <Box height='100%' width='100%' className={classes.appContent}>
         <Switch>
           <Route exact path={ROOT_ROUTE}>
             <Redirect to={HOME_ROUTE} />
           </Route>
-          <Route exact path={HOME_ROUTE}><Home /></Route>
-          <Route exact path={FAVORITES_ROUTE}><Favorites /></Route>
+          <Route exact path={HOME_ROUTE}>
+            <Home />
+          </Route>
+          <Route exact path={FAVORITES_ROUTE}>
+            <Favorites />
+          </Route>
         </Switch>
       </Box>
-
     </Fragment>
   );
 }

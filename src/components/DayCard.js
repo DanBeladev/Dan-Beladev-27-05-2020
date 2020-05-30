@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
+    background: 'cornsilk',
+    borderColor: 'darkgrey',
+    borderWidth: 1,
   },
   bullet: {
     display: 'inline-block',
@@ -21,6 +24,15 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  temp: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'monospace'
+  },
+  icon: {
+    width: 170,
+    height: 100
+  }
 });
 
 const DayCard = (props) => {
@@ -35,7 +47,7 @@ const DayCard = (props) => {
     const unit = showCelsius ? Temperature.Maximum.Unit : 'F';
 
     return (
-      <div>
+      <div className={classes.temp}>
         <p>
           {minValue} <i> °{unit}</i>
         </p>
@@ -47,7 +59,7 @@ const DayCard = (props) => {
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} elevation={4}>
       <CardContent>
         <Typography variant='h5' component='h2'>
           {name}
@@ -55,8 +67,7 @@ const DayCard = (props) => {
         <img
           src={Day.Icon}
           alt=''
-          className='round-img'
-          style={{ width: '60px' }}
+          className={classes.icon}
         />
         {
           getTemp()

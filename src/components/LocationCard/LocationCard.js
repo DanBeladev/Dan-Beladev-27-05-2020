@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import { IconButton } from '@material-ui/core';
+import { SvgIcon } from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -15,22 +17,25 @@ import {
 } from '../../actions/appActions';
 import './LocationCard.css';
 import { REMOVED_FROM_FAVORITES, ADDED_TO_FAVORITES } from '../../constants';
+import { findByLabelText } from '@testing-library/react';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
+    borderRadius: 15,
+    maxwidth: '70%',
+    background: 'cornsilk'
   },
   pos: {
     marginBottom: 12,
   },
+  weatherContainer: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  icon: {
+    width: 150,
+    height: 100
+  }
 });
 
 const LocationCard = () => {
@@ -83,7 +88,7 @@ const LocationCard = () => {
   }, [locationKey]);
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} elevation={4}>
       <CardContent>
         <Typography variant='h5' component='h2'>
           {locationName.city}
@@ -91,8 +96,8 @@ const LocationCard = () => {
         <Typography className={classes.pos} color='textSecondary'>
           {locationName.country}
         </Typography>
-        <Typography variant='body2' component='p'>
-          <Typography variant='h6' component='p'>
+        <Typography className={classes.weatherContainer} alignRight variant='body2' component='p'>
+          <Typography variant='h4' component='p'>
             {currentWeather.Temperature && (
               <i>
                 {showCelsius
@@ -103,7 +108,7 @@ const LocationCard = () => {
               </i>
             )}
           </Typography>
-          {locationIcon && <img src={locationIcon} alt='' />}
+          {locationIcon && <img className={classes.icon} src={locationIcon} alt='' />}
         </Typography>
       </CardContent>
       <CardActions>
