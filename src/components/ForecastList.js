@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ForecastList = ({ allDays }) => {
+const ForecastList = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const locationKey = useSelector((state) => state.app.locationKey);

@@ -32,7 +32,6 @@ export const getFavoriteData = async (locationKey) => {
   const locationData = await sendGetRequest(locationUrl, {});
   const locationWeatherList = await getCurrentWeather(locationKey);
   const locationWeather = locationWeatherList[0];
-  console.log(locationWeather, locationData);
   const favoriteData = {
     key: locationKey,
     cityName: locationData.LocalizedName,

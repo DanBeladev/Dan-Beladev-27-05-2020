@@ -57,7 +57,7 @@ const FavoriteCard = (props) => {
   };
 
   useEffect(() => {
-    fetchFavoriteData(locationKey);
+      fetchFavoriteData(locationKey);
   }, [locationKey]);
 
   const getTemp = () => {
@@ -90,7 +90,6 @@ const FavoriteCard = (props) => {
     setWeatherDetails(location.key);
     history.push(HOME_ROUTE);
   };
-  console.log('data: ', data);
   return (
     <Card className={classes.root} onClick={cardOnClick} elevation={4}>
       <CardContent>

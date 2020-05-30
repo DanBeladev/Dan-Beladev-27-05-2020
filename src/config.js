@@ -1,6 +1,7 @@
 // export const KEY = 'brxl3aId99qsVNTK4yDLZftG2BE7Nsj1';
-export const KEY = 'JANXejwAjYZyfME3tVAdZl71F1YvK0IB';
+// export const KEY = 'JANXejwAjYZyfME3tVAdZl71F1YvK0IB';
 // export const KEY = 'cI1qpqTW5Uz9AsTCMRbGKpnFFoMnSiTx';
+export const KEY = 'oBd0e1zyi5eN1PmknNjAY86wUqL3n8F8';
 export const LANGUAGE = 'language=en-us';
 
 export const AUTO_COMPLETE_API = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';

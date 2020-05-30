@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Grid, Paper } from '@material-ui/core';
-
 import { makeStyles } from '@material-ui/core/styles';
 import FavoriteCard from './FavoriteCard';
 
@@ -11,12 +10,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     background: 'linen',
   },
+  empty: {
+    display: 'flex',
+    justifyContent: 'center',
+    fontSize: 60,
+    fontWeight: 800
+  }
 }));
 
 const Favorites = () => {
   const classes = useStyles();
   const favoriteKeys = useSelector((state) => state.app.favoriteKeys);
-  return (
+  return favoriteKeys.length > 0 ? (
     <Paper
       justify='center'
       align='center'
@@ -25,7 +30,6 @@ const Favorites = () => {
     >
       <Grid container justify='center' spacing={3}>
         {favoriteKeys.map((favKey, index) => {
-          console.log(favKey);
           return (
             <Grid item align='center' key={index} xs={2}>
               <FavoriteCard locationKey={favKey} />
@@ -34,6 +38,8 @@ const Favorites = () => {
         })}
       </Grid>
     </Paper>
+  ) : (
+    <div className={classes.empty}>There is no favorites yet</div>
   );
 };
 
