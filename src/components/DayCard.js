@@ -9,17 +9,10 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
+    maxHeight: 270,
     background: 'cornsilk',
     borderColor: 'darkgrey',
     borderWidth: 1,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
   },
   pos: {
     marginBottom: 12,
@@ -31,7 +24,7 @@ const useStyles = makeStyles({
   },
   icon: {
     width: 170,
-    height: 100
+    height: 80
   }
 });
 

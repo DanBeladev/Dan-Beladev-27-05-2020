@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(2),
     borderRadius: 15,
-    background:'floralwhite'
+    background:'floralwhite',
+    maxHeight: 350
   },
   dayItem: {
     justify:'center'
@@ -32,7 +33,7 @@ const ForecastList = ({ allDays }) => {
   }, [locationKey]);
 
   return (
-    <Paper className={classes.container}>
+    <Paper className={classes.container} elevation={3}>
       <Grid item container justify="center" spacing={2}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4'>

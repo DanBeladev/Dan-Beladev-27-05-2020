@@ -7,7 +7,7 @@ import ForecastList from './ForecastList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#dde3ed',
+    // backgroundColor: '#dde3ed',
   },
 }));
 

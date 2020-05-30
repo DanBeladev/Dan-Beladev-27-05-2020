@@ -13,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     background: 'darkslategray'
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
   },
+  appBar: {
+    backgroundColor:'red'
+  }
 }));
 
 const AppNavBar = () => {
@@ -32,7 +32,7 @@ const AppNavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Herolo Weather 

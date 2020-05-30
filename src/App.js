@@ -13,9 +13,10 @@ import { ROOT_ROUTE, HOME_ROUTE, FAVORITES_ROUTE } from './constants';
 
 const useStyles = makeStyles((theme) => ({
   appContent: {
-    marginTop: theme.spacing(4),
-    //backgroundColor: '#a5b5cf',
-    backgroundColor: 'red',
+    padding: 30,
+    height: '100%',
+    width: '100%',
+    // backgroundColor: 'blue'
   },
 }));
 
@@ -29,7 +30,7 @@ function App() {
     <Fragment>
       <AppNavBar />
 
-      <Box height='100%' width='100%' className={classes.appContent}>
+      <Box  className={classes.appContent}>
         <Switch>
           <Route exact path={ROOT_ROUTE}>
             <Redirect to={HOME_ROUTE} />

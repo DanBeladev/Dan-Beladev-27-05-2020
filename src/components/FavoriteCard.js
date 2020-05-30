@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     background: 'cornsilk',
     '&:hover': {
       cursor: 'pointer',
-      background: 'red',
     },
   },
   temp: {
