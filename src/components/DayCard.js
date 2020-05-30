@@ -46,7 +46,7 @@ const DayCard = (props) => {
     const maxValue = showCelsius ? Temperature.Maximum.Value : cToF(Temperature.Maximum.Value);
     const unit = showCelsius ? Temperature.Maximum.Unit : 'F';
 
-    return (
+    return ( 
       <div className={classes.temp}>
         <p>
           {minValue} <i> °{unit}</i>
