@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Favorites = () => {
   const classes = useStyles();
-  const favoriteKeys = useSelector((state) => state.app.favoriteKeys);
+  const favoriteKeys = useSelector((state) => state.favorites.favoriteKeys);
   return favoriteKeys.length > 0 ? (
     <Paper
       justify='center'

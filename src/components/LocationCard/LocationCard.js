@@ -10,9 +10,11 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import {
   setWeatherDetailsAction,
   setCelsiusAction,
+} from '../../actions/appActions';
+import {
   addToFavoritesAction,
   removeFromFavoritesAction,
-} from '../../actions/appActions';
+} from '../../actions/favoritesActions';
 import './LocationCard.css';
 import { REMOVED_FROM_FAVORITES, ADDED_TO_FAVORITES } from '../../constants';
 
@@ -45,7 +47,7 @@ const LocationCard = () => {
   const locationName = useSelector((state) => state.app.locationName);
   const currentWeather = useSelector((state) => state.app.currentWeather);
   const showCelsius = useSelector((state) => state.app.showCelsius);
-  const favoriteKeys = useSelector((state) => state.app.favoriteKeys);
+  const favoriteKeys = useSelector((state) => state.favorites.favoriteKeys);
   const locationIcon = useSelector(
     (state) => state.app.currentWeather.WeatherIcon
   );

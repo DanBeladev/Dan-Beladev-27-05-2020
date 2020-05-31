@@ -5,15 +5,17 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import debounce from 'lodash.debounce';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import {
-  searchAction,
   setLoactionAction,
   setWeatherDetailsAction,
 } from '../actions/appActions';
+import {
+  searchAction,
+} from '../actions/searchActions';
 import { DEBOUNCE_TIMEOUT_MS } from '../constants';
 
 const Search = () => {
   const dispatch = useDispatch();
-  const searchResults = useSelector((state) => state.app.searchResults);
+  const searchResults = useSelector((state) => state.search.searchResults);
 
   const search = (text) => dispatch(searchAction(text));
   const setLocation = (location) => dispatch(setLoactionAction(location));
