@@ -5,9 +5,8 @@ export const cToF = (celsius) => {
   return Math.round(number * 10) / 10;
 };
 
-// TODO: Refactor
 export const getIconUrl = (weatherIcon) => {
-  const length = weatherIcon.toString().length;
+  const length = weatherIcon ? weatherIcon.toString().length: 0
   return length > 1
     ? `${ICON_SHORTER_URL}${weatherIcon}${ICON_EXTENSION}`
     : `${ICON_URL}${weatherIcon}${ICON_EXTENSION}`;
