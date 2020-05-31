@@ -23,4 +23,4 @@ The web application should now run locally on port 3000.
 
 You can access it from the browser via: `http://localhost:3000`
 
-
+Due to cors issues, the browser must accept "unsafe content" because a site is running in 'https' protocol and we are requesting information from api with 'http' protocol.

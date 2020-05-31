@@ -39,7 +39,7 @@ const Favorites = () => {
       </Grid>
     </Paper>
   ) : (
-    <div className={classes.empty}>There are no favorites yet</div>
+    <div className={classes.empty}>There Are No Favorites Yet</div>
   );
 };
 
