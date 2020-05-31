@@ -32,6 +32,7 @@ export const getFavoriteData = async (locationKey) => {
   const locationData = await sendGetRequest(locationUrl, {});
   const locationWeatherList = await getCurrentWeather(locationKey);
   const locationWeather = locationWeatherList[0];
+  if(locationData && locationWeather){
   const favoriteData = {
     key: locationKey,
     cityName: locationData.LocalizedName,
@@ -41,6 +42,15 @@ export const getFavoriteData = async (locationKey) => {
     temperature: locationWeather.Temperature,
   };
   return favoriteData;
+}
+return {
+  key: '',
+  cityName: '',
+  country: '',
+  iconUrl: getIconUrl(2),
+  description: '',
+  temperature: {}
+};
 };
 
 // Private functions
