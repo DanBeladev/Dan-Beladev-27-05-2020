@@ -5,6 +5,7 @@ import { cToF } from '../utils';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
@@ -63,5 +64,11 @@ const DayCard = (props) => {
     </Card>
   );
 };
+
+DayCard.propType = {
+  name: PropTypes.string.isRequired,
+  day: PropTypes.object.isRequired,
+  Temperature: PropTypes.object.isRequired
+}
 
 export default DayCard;

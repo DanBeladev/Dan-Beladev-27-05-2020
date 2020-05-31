@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import DayCard from './DayCard';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import { getWeeklyForecastAction } from '../actions/appActions';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -49,4 +50,9 @@ const ForecastList = () => {
   );
 };
 
+ForecastList.propTypes = {
+day: PropTypes.object,
+locationKey: PropTypes.string,
+weeklyData: PropTypes.object,
+}
 export default ForecastList;

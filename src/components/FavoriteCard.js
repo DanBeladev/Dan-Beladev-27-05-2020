@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { getFavoriteData } from '../services/backendService';
 import { HOME_ROUTE } from '../constants';
+import PropTypes from 'prop-types';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import {
   setLoactionAction,
   setWeatherDetailsAction,
@@ -52,8 +54,8 @@ const FavoriteCard = (props) => {
   const showCelsius = useSelector((state) => state.app.showCelsius);
 
   const fetchFavoriteData = async (locationKey) => {
-    const data = await getFavoriteData(locationKey);
-    setData(data);
+      const data = await getFavoriteData(locationKey);
+      data ? setData(data) :  M.toast({html: `Error with fetching favorites Data`});
   };
 
   useEffect(() => {
@@ -112,10 +114,17 @@ const FavoriteCard = (props) => {
           {data.description}
         </Typography>
         <img src={data.iconUrl} alt='' className={classes.icon} />
-        {data.temperature ? getTemp() : <i>Undefined</i>}
+        {data.temperature ? getTemp() : <i>0</i>}
       </CardContent>
     </Card>
   );
+};
+
+FavoriteCard.propType = {
+  locationKey: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
+  cityName: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
 };
 
 export default FavoriteCard;

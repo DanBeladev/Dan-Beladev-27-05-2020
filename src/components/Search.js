@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import debounce from 'lodash.debounce';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import {
   searchAction,
   setLoactionAction,
@@ -21,12 +22,15 @@ const Search = () => {
 
   const onTyping = (event, value) => {
     let toDebounce = debounce(() => {
-      if (value.length > 0) {
-        search(value);
-      }
-    }, DEBOUNCE_TIMEOUT_MS);
-
-    toDebounce();
+        if (value.length > 0) {
+          search(value);
+        }
+        else{
+          M.toast({html: 'Error with seraching results'})
+        }
+      }, DEBOUNCE_TIMEOUT_MS);
+      
+      toDebounce();
   };
 
   const onOptionSelect = (event, value) => {

@@ -1,19 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Search from './Search';
 import LocationCard from './LocationCard/LocationCard';
 import ForecastList from './ForecastList';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 
 const Home = () => {
-  const classes = useStyles();
-
   return (
-    <Container minwidth='md' className={classes.root}>
+    <Container minwidth='md'>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Search />
@@ -25,7 +19,7 @@ const Home = () => {
         <Grid item xs={6}></Grid>
 
         <Grid item xs={12}>
-          <ForecastList allDays={[1, 1, 1, 1, 1]} />
+          <ForecastList />
         </Grid>
       </Grid>
     </Container>
