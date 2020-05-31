@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
   icon: {
     width: 160,
-    height: 70,
+    height: 80,
   },
 });
 

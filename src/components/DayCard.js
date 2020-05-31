@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    maxHeight: 242,
+    maxHeight: 235,
     background: 'lightslategray',
   },
   pos: {
@@ -19,11 +19,14 @@ const useStyles = makeStyles({
     fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'monospace',
-  },
+   },
   icon: {
     width: 160,
     height: 80,
   },
+  value :{
+    margin: 0
+  }
 });
 
 const DayCard = (props) => {
@@ -42,11 +45,11 @@ const DayCard = (props) => {
 
     return (
       <div className={classes.temp}>
-        <p>
-          {minValue} <i> °{unit}</i>
+        <p className={classes.value}>
+          {minValue}<i>° {unit}</i>
         </p>
-        <p>
-          {maxValue} <i> °{unit}</i>
+        <p className={classes.value}>
+          {maxValue}<i>° {unit}</i>
         </p>
       </div>
     );

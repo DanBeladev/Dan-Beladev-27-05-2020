@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     borderRadius: 15,
     background: 'linen',
-    maxHeight: 260,
+    maxHeight: 230,
   },
   dayItem: {
     justify: 'center',
