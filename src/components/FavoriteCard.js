@@ -17,6 +17,7 @@ import {
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
+    height: 370,
     background: 'lightslategray',
     '&:hover': {
       cursor: 'pointer',
