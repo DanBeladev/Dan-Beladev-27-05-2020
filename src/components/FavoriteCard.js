@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import { getFavoriteData } from '../services/backendService';
 import { HOME_ROUTE } from '../constants';
 import PropTypes from 'prop-types';
@@ -27,6 +24,7 @@ const useStyles = makeStyles({
     fontSize: 25,
     fontWeight: 'bold',
     fontFamily: 'monospace',
+    textAlign: 'center'
   },
   icon: {
     width: 170,
@@ -36,6 +34,9 @@ const useStyles = makeStyles({
     fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'cursive',
+    textAlign: 'center',
+    margin:10,
+    marginTop: 30
   },
   pos: {
     marginBottom: 12,
@@ -55,12 +56,14 @@ const FavoriteCard = (props) => {
   const showCelsius = useSelector((state) => state.app.showCelsius);
 
   const fetchFavoriteData = async (locationKey) => {
-      const data = await getFavoriteData(locationKey);
-      data ? setData(data) :  M.toast({html: `Error with fetching favorites Data`});
+    const data = await getFavoriteData(locationKey);
+    data
+      ? setData(data)
+      : M.toast({ html: `Error with fetching favorites Data` });
   };
 
   useEffect(() => {
-      fetchFavoriteData(locationKey);
+    fetchFavoriteData(locationKey);
   }, [locationKey]);
 
   const getTemp = () => {
@@ -94,30 +97,19 @@ const FavoriteCard = (props) => {
     history.push(HOME_ROUTE);
   };
   return (
-    <Card className={classes.root} onClick={cardOnClick} elevation={4}>
-      <CardContent>
-        <Typography variant='h4' component='h2'>
-          {data.cityName}
-        </Typography>
-        <Typography
-          variant='h5'
-          component='h2'
-          color='textSecondary'
-          className={classes.pos}
-        >
-          {data.country}
-        </Typography>
-        <Typography
-          className={classes.description}
-          variant='subtitle1'
-          component='h2'
-        >
-          {data.description}
-        </Typography>
+    <div
+      className='card blue-grey darken-1 col-xs-12 col-sm-6'
+      style={{ minWidth: 180, maxWidth: 350, margin: 10 }}
+      onClick={cardOnClick}
+    >
+      <div className='card-content white-text'>
+        <div className='card-title'>{data.cityName}</div>
+        <div className='card-secondary'>{data.country}</div>
+        <div className={classes.description}>{data.description}</div>
         <img src={data.iconUrl} alt='' className={classes.icon} />
-        {data.temperature ? getTemp() : <i>0</i>}
-      </CardContent>
-    </Card>
+        <div className={classes.temp}>{data.temperature ? getTemp() : <i>0</i>}</div>
+      </div>
+    </div>
   );
 };
 

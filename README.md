@@ -2,7 +2,7 @@
 
 Dan Beladev - danbeladev@gmail.com - *Home Assignment - Herolo*
 
-This app is written in React and it simulates a weather indication around the world
+This app is written with React and it simulates a weather indication around the world
 
 ## Getting Started
 
