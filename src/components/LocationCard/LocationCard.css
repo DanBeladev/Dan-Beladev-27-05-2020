@@ -33,3 +33,15 @@
     width: 32px;
     height: 32px;
 }
+
+.weatherContainer {
+    display: flex;
+    justify-content: space-between;
+} 
+
+@media only screen and (max-width: 650px) {
+    .weatherContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

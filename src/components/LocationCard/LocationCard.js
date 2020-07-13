@@ -25,6 +25,11 @@ const useStyles = makeStyles({
     background: 'linen',
     marginBottom: 25,
     marginTop: 25,
+    minWidth: 150
+  },
+  temperature:{
+    fontSize:30,
+    fontFamily:'sans-serif'
   },
   pos: {
     marginBottom: 12,
@@ -97,12 +102,12 @@ const LocationCard = () => {
           {locationName.country}
         </Typography>
         <Typography
-          className={classes.weatherContainer}
+          className="weatherContainer"
           alignright='true'
           variant={'body2'}
           component={'span'}
         >
-          <Typography variant={'h4'} component={'span'}>
+          <span className= {classes.temperature}>
             {currentWeather.Temperature && (
               <i>
                 {showCelsius
@@ -112,7 +117,7 @@ const LocationCard = () => {
             ${currentWeather.Temperature['Imperial'].Unit}`}
               </i>
             )}
-          </Typography>
+          </span>
           {locationIcon && (
             <img className={classes.icon} src={locationIcon} alt='' />
           )}

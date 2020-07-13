@@ -11,6 +11,8 @@ const useStyles = makeStyles({
     maxWidth: 500,
     maxHeight: 235,
     background: 'lightslategray',
+    margin:10,
+    textAlign: 'center'
   },
   pos: {
     marginBottom: 12,

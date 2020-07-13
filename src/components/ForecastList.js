@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import DayCard from './DayCard';
-import { Grid, Typography, Paper } from '@material-ui/core';
 import { getWeeklyForecastAction } from '../actions/appActions';
 import PropTypes from 'prop-types';
+import './ForecastList.css'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,7 +12,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     background: 'linen',
     maxHeight: 230,
-    // backgroundColor:'red',
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center'
+  },
+  text:{
+    fontSize: 50,
+    fontFamily:'cursive',
+  },
+  daysCards:{
+    display:'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
   },
   dayItem: {
     justify: 'center',
@@ -33,21 +44,19 @@ const ForecastList = () => {
   }, [locationKey]);
 
   return (
-    <Paper className={classes.container} elevation={3}>
-      <Grid item container justify='center' spacing={2}>
-        <Grid item xs={12}>
-          <Typography align='center' variant='h4'>
+    <div className={classes.container}>
+          <span className="text">
+
             {weeklyData.text}
-          </Typography>
-        </Grid>
+          </span>
+        <div className={classes.daysCards}>
         {weeklyData.dailyForecasts &&
           weeklyData.dailyForecasts.map((day, index) => (
-            <Grid item align='center' key={'day_' + index} xs={2}>
               <DayCard key={'dayCard_' + index} day={day} />
-            </Grid>
           ))}
-      </Grid>
-    </Paper>
+          </div>
+    </div>  
+
   );
 };
 
