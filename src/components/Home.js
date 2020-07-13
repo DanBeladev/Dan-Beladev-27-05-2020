@@ -4,7 +4,6 @@ import Search from './Search';
 import LocationCard from './LocationCard/LocationCard';
 import ForecastList from './ForecastList/ForecastList';
 
-
 const Home = () => {
   return (
     <Container minwidth='md'>
