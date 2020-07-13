@@ -1,6 +1,6 @@
 # WeatherApp 
 
-Dan Beladev - danbeladev@gmail.com - *Home Assignment - Herolo*
+Dan Beladev - danbeladev@gmail.com
 
 This app is written with React and it simulates a weather indication around the world
 

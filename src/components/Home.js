@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Search from './Search';
 import LocationCard from './LocationCard/LocationCard';
-import ForecastList from './ForecastList';
+import ForecastList from './ForecastList/ForecastList';
 
 
 const Home = () => {
