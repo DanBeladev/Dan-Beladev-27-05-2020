@@ -8,9 +8,13 @@ This app is written with React and it simulates a weather indication around the 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+This app has been uploaded to Heroku's server, you can log in and watch it by clicking the link:
+`https://weather-api-website-dan.herokuapp.com/`
+
+
 ### Prerequisites
 
-Run the project from the `Dan-Beladev-27-05-2020` repository:
+Run the project from the `World-Weather-App` repository:
 
 ```
 npm install
