@@ -30,7 +30,7 @@ const AppNavBar = () => {
       <AppBar position='static' className={classes.appBar}>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
-            Herolo Weather
+            World Weather
           </Typography>
           <Button color='inherit' onClick={() => onButtonClick(HOME_ROUTE)}>
             Home
