@@ -2,9 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import DayCard from '../DayCard';
-import { getWeeklyForecastAction } from '../../actions/appActions';
+import {
+  getWeeklyForecastAction,
+  showLoaderAction,
+  hideLoaderAction,
+} from '../../actions/appActions';
 import PropTypes from 'prop-types';
-import './ForecastList.css'
+import './ForecastList.css';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,18 +16,18 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     background: 'linen',
     maxHeight: 230,
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center'
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  text:{
+  text: {
     fontSize: 50,
-    fontFamily:'cursive',
+    fontFamily: 'cursive',
   },
-  daysCards:{
-    display:'flex',
+  daysCards: {
+    display: 'flex',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   dayItem: {
     justify: 'center',
@@ -35,34 +39,34 @@ const ForecastList = () => {
   const dispatch = useDispatch();
   const locationKey = useSelector((state) => state.app.locationKey);
   const weeklyData = useSelector((state) => state.app.weeklyData);
+  const showLoader = () => dispatch(showLoaderAction());
+  const hideLoader = () => dispatch(hideLoaderAction());
 
   const getWeeklyForecast = () =>
     dispatch(getWeeklyForecastAction(locationKey));
 
   useEffect(() => {
+    showLoader();
     getWeeklyForecast();
+    hideLoader();
   }, [locationKey]);
 
   return (
     <div className={classes.container}>
-          <span className="text">
-
-            {weeklyData.text}
-          </span>
-        <div className={classes.daysCards}>
+      <span className='text'>{weeklyData.text}</span>
+      <div className={classes.daysCards}>
         {weeklyData.dailyForecasts &&
           weeklyData.dailyForecasts.map((day, index) => (
-              <DayCard key={'dayCard_' + index} day={day} />
+            <DayCard key={'dayCard_' + index} day={day} />
           ))}
-          </div>
-    </div>  
-
+      </div>
+    </div>
   );
 };
 
 ForecastList.propTypes = {
-day: PropTypes.object,
-locationKey: PropTypes.string,
-weeklyData: PropTypes.object,
-}
+  day: PropTypes.object,
+  locationKey: PropTypes.string,
+  weeklyData: PropTypes.object,
+};
 export default ForecastList;

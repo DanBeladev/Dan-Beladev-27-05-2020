@@ -6,3 +6,5 @@ export const SET_WEEKLY_DATA = 'SET_WEEKLY_DATA';
 export const SET_SHOW_CELSIUS = 'SET_SHOW_CELSIUS';
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'REMOVE_FAVORITES';
+export const SHOW_LOADER = 'SHOW_LOADER';
+export const HIDE_LOADER = 'HIDE_LOADER';

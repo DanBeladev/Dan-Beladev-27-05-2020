@@ -10,6 +10,8 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import {
   setWeatherDetailsAction,
   setCelsiusAction,
+  showLoaderAction,
+  hideLoaderAction
 } from '../../actions/appActions';
 import {
   addToFavoritesAction,
@@ -62,6 +64,8 @@ const LocationCard = () => {
 
   const setCelsius = (newValue) => dispatch(setCelsiusAction(newValue));
   const setWeather = () => dispatch(setWeatherDetailsAction(locationKey));
+  const showLoader = () => dispatch(showLoaderAction());
+  const hideLoader = () => dispatch(hideLoaderAction());
   const removeFromFavorites = () =>
     dispatch(removeFromFavoritesAction(locationKey));
   const addToFavorites = () => dispatch(addToFavoritesAction(locationKey));
@@ -85,7 +89,9 @@ const LocationCard = () => {
   };
 
   const fetchLocationData = () => {
+    showLoader();
     setWeather(locationKey);
+    hideLoader();
   };
 
   useEffect(() => {

@@ -3,6 +3,8 @@ import {
   SET_WEATHER_DETAILS,
   SET_WEEKLY_DATA,
   SET_SHOW_CELSIUS,
+  SHOW_LOADER,
+  HIDE_LOADER,
 } from './types';
 import {
   getCurrentWeather,
@@ -39,6 +41,14 @@ export const getWeeklyForecastAction = (locationKey) => async (dispatch) => {
 
 export const setCelsiusAction = (show) => (dispatch) => {
   dispatch({ type: SET_SHOW_CELSIUS, payload: show });
+};
+
+export const showLoaderAction = () => (dispatch) => {
+  dispatch({ type: SHOW_LOADER});
+};
+
+export const hideLoaderAction = () => (dispatch) => {
+  dispatch({ type: HIDE_LOADER});
 };
 
 // Private fuctions

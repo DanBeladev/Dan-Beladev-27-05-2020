@@ -3,6 +3,8 @@ import {
   SET_WEATHER_DETAILS,
   SET_WEEKLY_DATA,
   SET_SHOW_CELSIUS,
+  SHOW_LOADER,
+  HIDE_LOADER,
 } from '../actions/types';
 
 const initialState = {
@@ -12,6 +14,7 @@ const initialState = {
   currentWeather: {},
   weeklyData: {},
   showCelsius: true,
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -40,6 +43,16 @@ export default (state = initialState, action) => {
         ...state,
         showCelsius: action.payload,
       };
+      case SHOW_LOADER:
+        return {
+          ...state,
+          loading: true,
+        };
+        case HIDE_LOADER:
+          return {
+            ...state,
+            loading: false,
+          };
     default:
       return state;
   }
